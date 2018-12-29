@@ -79,15 +79,17 @@ class TodoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "TodoDetail", sender: nil)
-        
+        print("1")
+        performSegue(withIdentifier: "TodoDetail", sender: todos[indexPath.row])
+        print("2")
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "TodoDetail"{
-//            let _ = segue.destination as! UIViewController
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TodoDetail"{
+            let vc = segue.destination as! TodoItemViewController
+            vc.item = sender as? TodoItem      // TODO: What if nil????
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.

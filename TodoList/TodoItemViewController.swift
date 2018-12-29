@@ -8,13 +8,32 @@
 
 import UIKit
 
-class TodoItemViewController: UIViewController {
+class TodoItemViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var content: UITextView!
+    
+    @IBOutlet weak var itemTitle: UITextField!
+    
+    var item: TodoItem?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if item != nil{
+            itemTitle.text = item?.title
+            content.text = item?.content
+        }
+        
+        itemTitle.delegate = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        itemTitle.resignFirstResponder()
+        return true
+    }
+    
+    
+    
     
 
     /*
