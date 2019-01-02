@@ -9,7 +9,8 @@
 import UIKit
 
 class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    
+    //label on the bottom(this is a ptr to a UILabel in MainViewController)
+    var buttomLabel = UILabel()
     //generate a list of UIViewController to scroll through
     func newViewController(vcName:String) -> UIViewController{
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName)
@@ -20,16 +21,16 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     //get names with index
     var pageNames = ["Schedule","Tasks","Deleted"]
     var currentIndex = 0{
-        didSet{navigationBar.title = pageNames[currentIndex]}
+        didSet{
+            buttomLabel.text = pageNames[currentIndex]
+        }
     }
     
-    //navigation bar
-    @IBOutlet weak var navigationBar: UINavigationItem!
-    //navigation add button
-    @IBAction func addTask(_ sender: UIBarButtonItem) {
+    //add a task to tasks table and set currentIndex to 1
+    func addTask(){
         //If not at page: tasks, goto page: tasks
         if currentIndex != 1 {goto(pageIndex: 1)}
-        print("add!!!!!!!!")
+        print("add!!!")
     }
     
     //get the previous page(swipe right)
@@ -78,6 +79,7 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
         
         //goto page 0
         goto(pageIndex: 0)
+        
         
     }
    

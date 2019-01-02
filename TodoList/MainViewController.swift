@@ -8,23 +8,33 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var pageTitle: UILabel!
+    var pageNames = ["Schedule","Tasks","Deleted"]
+    @IBAction func addTask(_ sender: UIButton) {
+        pageController.addTask()
     }
-    */
+    
+    //this is the ptr to the pageVC inside the container
+    var pageController = mainPageController()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "containerSegue"{
+            if let destinationVC = segue.destination as? mainPageController{
+                pageController = destinationVC
+                pageController.buttomLabel = pageTitle
+            }
 
+        }
+    }
+    
+   
+
+    
 }

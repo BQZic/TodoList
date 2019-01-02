@@ -17,6 +17,7 @@
 		B6C2EE0621D90CD000DC97F6 /* scheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C2EE0521D90CD000DC97F6 /* scheduleController.swift */; };
 		B6C2EE0A21D90D4900DC97F6 /* tasksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C2EE0921D90D4900DC97F6 /* tasksController.swift */; };
 		B6C2EE0C21D90EA400DC97F6 /* deletedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C2EE0B21D90EA400DC97F6 /* deletedController.swift */; };
+		B6F1ABC121DC9CE70054845A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F1ABC021DC9CE70054845A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B6C2EE0521D90CD000DC97F6 /* scheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleController.swift; sourceTree = "<group>"; };
 		B6C2EE0921D90D4900DC97F6 /* tasksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tasksController.swift; sourceTree = "<group>"; };
 		B6C2EE0B21D90EA400DC97F6 /* deletedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deletedController.swift; sourceTree = "<group>"; };
+		B6F1ABC021DC9CE70054845A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C2EDD221D90B0B00DC97F6 /* Main.storyboard */,
+				B6F1ABC021DC9CE70054845A /* MainViewController.swift */,
 				B6C2EE0321D90C6A00DC97F6 /* mainPageController.swift */,
 				B6C2EE0D21D90EC900DC97F6 /* pages */,
 				B6C2EDFC21D90B8700DC97F6 /* Supporting Files */,
@@ -284,6 +287,7 @@
 				B6C2EE0621D90CD000DC97F6 /* scheduleController.swift in Sources */,
 				B6C2EE0421D90C6A00DC97F6 /* mainPageController.swift in Sources */,
 				B6C2EE0A21D90D4900DC97F6 /* tasksController.swift in Sources */,
+				B6F1ABC121DC9CE70054845A /* MainViewController.swift in Sources */,
 				B6C2EE0C21D90EA400DC97F6 /* deletedController.swift in Sources */,
 				B6C2EDCF21D90B0B00DC97F6 /* AppDelegate.swift in Sources */,
 			);
