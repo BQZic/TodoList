@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  TodoList
 //
-//  Created by Beiqi Zou on 12/21/18.
-//  Copyright © 2018 Beiqi Zou. All rights reserved.
+//  Created by Haoyun Zhu on 2018/12/30.
+//  Copyright © 2018 Haoyun Zhu. All rights reserved.
 //
 
 import UIKit
