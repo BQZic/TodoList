@@ -11,10 +11,7 @@ import UIKit
 class deletedController: UITableViewController {
 
     var tableID = "Deleted Cell"
-    struct tempCell {
-        var title = "Deleted Cell Temp"
-        var content = "subsubsub"
-    }
+    var deleted = deletedModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +22,17 @@ class deletedController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return deleted.deleted.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableID, for: indexPath)
-        cell.textLabel?.text = tempCell().title
-        cell.detailTextLabel?.text = tempCell().content
-        
+        let index = indexPath.row
+        if index>=0 && index<deleted.deleted.count{
+            let tempCell = deleted.deleted[index]
+            cell.textLabel?.text = tempCell.title
+            cell.detailTextLabel?.text = tempCell.detail
+        }
         return cell
     }
 }

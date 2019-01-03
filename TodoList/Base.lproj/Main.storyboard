@@ -65,7 +65,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gw-BN-9Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-780" y="403"/>
+            <point key="canvasLocation" x="-1972" y="316"/>
         </scene>
         <!--Schedule Controller-->
         <scene sceneID="xUb-Vd-pVa">
@@ -109,7 +109,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buW-X2-Cca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="403"/>
+            <point key="canvasLocation" x="-1159" y="316"/>
         </scene>
         <!--Deleted Controller-->
         <scene sceneID="57y-zT-kVa">
@@ -153,12 +153,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODX-yB-O49" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808" y="401"/>
+            <point key="canvasLocation" x="-385" y="314"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="00H-mB-D6s">
             <objects>
-                <viewController id="7Bf-r6-zME" customClass="MainViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Bf-r6-zME" customClass="mainViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B9R-H4-CpY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MK-Sd-TmJ">
-                                <rect key="frame" x="126" y="638" width="122" height="21"/>
+                                <rect key="frame" x="126" y="633" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pt-sf-qYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1834.4000000000001" y="-473.6131934032984"/>
+            <point key="canvasLocation" x="-1625" y="-461"/>
         </scene>
     </scenes>
 </document>

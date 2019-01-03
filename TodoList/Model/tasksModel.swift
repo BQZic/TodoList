@@ -7,3 +7,10 @@
 //
 
 import Foundation
+class tasksModel{
+    var tasks = [oneTask]()
+    
+    func addTask(title:String,detail:String,count:Int){
+        tasks.append(oneTask(title: title, detail: detail, count: count))
+    }
+}

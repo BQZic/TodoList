@@ -32,7 +32,6 @@ class mainViewController: UIViewController{
             if let destinationVC = segue.destination as? mainPageController{
                 pageController = destinationVC
                 pageController.bottomLabel = pageTitle
-                pageController.todoListModel = todoList(of:"AP")
             }
         }
     }

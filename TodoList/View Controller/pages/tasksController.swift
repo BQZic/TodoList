@@ -11,10 +11,7 @@ import UIKit
 class tasksController: UITableViewController {
     
     var tableID = "Tasks Cell"
-    struct tempCell {
-        var title = "Tasks Cell Temp"
-        var content = "subsubsub"
-    }
+    var tasks = tasksModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +22,37 @@ class tasksController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tasks.tasks.count
     }
 
+    //load
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableID, for: indexPath)
-        cell.textLabel?.text = tempCell().title
-        cell.detailTextLabel?.text = tempCell().content
-        
+        let index = indexPath.row
+        if index>=0 && index<tasks.tasks.count{
+        let tempCell = tasks.tasks[index]
+        cell.textLabel?.text = tempCell.title
+        cell.detailTextLabel?.text = tempCell.detail
+        }
         return cell
+    }
+    
+    //delete
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+//            // delete item at indexPath
+//            self.tasks.tasks.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//
+//        return [delete]
+//    }
+    
+    //add
+    func addTask(title: String, detail: String, count: Int){
+        tasks.addTask(title: title, detail: detail, count: count)
+        tableView.reloadData()
     }
 }

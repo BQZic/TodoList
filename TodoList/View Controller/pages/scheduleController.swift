@@ -11,10 +11,7 @@ import UIKit
 class scheduleController: UITableViewController {
 
     var tableID = "Schedule Cell"
-    struct tempCell {
-        var title = "Schedule Cell Temp"
-        var content = "subsubsub"
-    }
+    var schedule = scheduleModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +22,17 @@ class scheduleController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return schedule.schedule.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableID, for: indexPath)
-        cell.textLabel?.text = tempCell().title
-        cell.detailTextLabel?.text = tempCell().content
-        
+        let index = indexPath.row
+        if index>=0 && index<schedule.schedule.count{
+        let tempCell = schedule.schedule[index]
+        cell.textLabel?.text = tempCell.title
+        cell.detailTextLabel?.text = tempCell.detail
+        }
         return cell
     }
 }

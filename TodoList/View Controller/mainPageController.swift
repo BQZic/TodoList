@@ -9,20 +9,27 @@
 import UIKit
 
 class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
     //label on the bottom(this is a ptr to a UILabel in MainViewController)
-    var buttomLabel = UILabel()
+    var bottomLabel = UILabel()
+    
     //generate a list of UIViewController to scroll through
-    func newViewController(vcName:String) -> UIViewController{
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: vcName)
+    func newViewController(viewControllerID:String) -> UIViewController{
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewControllerID)
     }
-    lazy var pages : [UIViewController] = [newViewController(vcName: "Schedule Controller"),
-                                                newViewController(vcName: "Tasks Controller"),
-                                                newViewController(vcName: "Deleted Controller")]
-    //get names with index
+    //DO NOT CHANGE THE ID, it links to the storyboard
+    lazy var pages : [UIViewController] =
+        [newViewController(viewControllerID: "Schedule Controller"),
+         newViewController(viewControllerID: "Tasks Controller"),
+         newViewController(viewControllerID: "Deleted Controller")]
+    
+    //set bottom title names for pages
     var pageNames = ["Schedule","Tasks","Deleted"]
+    
+    //current page index, after set to an index, change the name of bottom title
     var currentIndex = 0{
         didSet{
-            buttomLabel.text = pageNames[currentIndex]
+            bottomLabel.text = pageNames[currentIndex]
         }
     }
     
@@ -30,18 +37,17 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     func addTask(){
         //If not at page: tasks, goto page: tasks
         if currentIndex != 1 {goto(pageIndex: 1)}
-        print("add!!!")
+        if let taskVC = viewControllers![0] as? tasksController{
+            taskVC.addTask(title: "new T", detail: "new D", count: 1)
+        }
     }
     
     //get the previous page(swipe right)
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = pages.index(of:viewController as! UITableViewController) else{return nil}
         let previousIndex = currentIndex - 1
-        
         guard previousIndex >= 0 else{return pages.last}
-        
         guard pages.count > previousIndex else{return nil}
-        
         return pages[previousIndex]
     }
     
@@ -49,11 +55,8 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = pages.index(of:viewController as! UITableViewController) else{return nil}
         let nextIndex = currentIndex + 1
-        
         guard pages.count != nextIndex else{return pages.first}
-        
         guard pages.count > nextIndex else{return nil}
-        
         return pages[nextIndex]
     }
     
@@ -61,6 +64,13 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         currentIndex = pages.index(of: pageContentViewController)!
+    }
+    
+    //reload table every time before switching to it
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        if let tableVC =  pendingViewControllers[0] as? UITableViewController{
+            tableVC.tableView.reloadData()
+        }
     }
     
     //goto a page(set current view to a page)
@@ -72,6 +82,7 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
     }
     
+    //load view
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
