@@ -50,9 +50,22 @@ class tasksController: UITableViewController {
 //        return [delete]
 //    }
     
-    //add
+    //add a cell
+    var count = 0
     func addTask(title: String, detail: String, count: Int){
-        tasks.addTask(title: title, detail: detail, count: count)
+        self.count += 1
+        tasks.addTask(title: title, detail: String(self.count), count: self.count)
         tableView.reloadData()
     }
+    
+    //move table cells
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let cellToMove = tasks.tasks[sourceIndexPath.row]
+        tasks.tasks.remove(at: sourceIndexPath.row)
+        tasks.tasks.insert(cellToMove, at: destinationIndexPath.row)
+    }
+    
 }

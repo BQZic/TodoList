@@ -171,16 +171,25 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXW-cO-H8q">
-                                <rect key="frame" x="321" y="629" width="30" height="30"/>
+                                <rect key="frame" x="256" y="629" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="addTask:" destination="7Bf-r6-zME" eventType="touchUpInside" id="b4N-xl-SEs"/>
+                                    <action selector="onTapBottomRightButton:" destination="7Bf-r6-zME" eventType="touchUpInside" id="b4N-xl-SEs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MK-Sd-TmJ">
-                                <rect key="frame" x="126" y="633" width="122" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jf-0t-tvQ">
+                                <rect key="frame" x="24" y="628" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="onTapBottomLeftButton:" destination="7Bf-r6-zME" eventType="touchUpInside" id="a6G-q4-QOJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MK-Sd-TmJ">
+                                <rect key="frame" x="126" y="632" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -190,12 +199,14 @@
                         <viewLayoutGuide key="safeArea" id="NJs-7q-lQg"/>
                     </view>
                     <connections>
-                        <outlet property="pageTitle" destination="8MK-Sd-TmJ" id="bgr-Cr-mE7"/>
+                        <outlet property="bottomLabel" destination="8MK-Sd-TmJ" id="bgr-Cr-mE7"/>
+                        <outlet property="bottomLeftButton" destination="8jf-0t-tvQ" id="edH-bh-OJe"/>
+                        <outlet property="bottomRightButton" destination="ZXW-cO-H8q" id="Ldf-dJ-hQk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pt-sf-qYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1625" y="-461"/>
+            <point key="canvasLocation" x="-1626.4000000000001" y="-461.01949025487261"/>
         </scene>
     </scenes>
 </document>

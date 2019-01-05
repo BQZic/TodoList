@@ -10,9 +10,36 @@ import UIKit
 
 class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    //label on the bottom(this is a ptr to a UILabel in MainViewController)
+    //label and buttons on the bottom(theses are ptrs to a UILabel in MainViewController)
     var bottomLabel = UILabel()
+    var bottomLeftButton = UIButton()
+    var bottomRightButton = UIButton()
+    var bottomLeftText = ["Edit","Edit","Edit"]{
+        didSet{
+            if didSetBottomButtons(array: bottomLeftText, oldValue: oldValue,position: "left"){
+                bottomLeftButton.setTitle(bottomLeftText[currentIndex], for: UIControl.State.normal)
+            }
+        }
+    }
+    var bottomRightText = ["Add","Add","Add"]{
+        didSet{
+            if didSetBottomButtons(array: bottomRightText, oldValue: oldValue,position: "right"){
+                bottomRightButton.setTitle(bottomRightText[currentIndex], for: UIControl.State.normal)
+            }
+        }
+    }
     
+    //this function detect which index of an array is changed
+    func didSetBottomButtons (array: Array<String>,oldValue : Array<String>,position: String) ->Bool{
+        let changedIndexes = zip(array, oldValue).map{$0 != $1}.enumerated().filter{$1}.map{$0.0}
+        if changedIndexes != [currentIndex] {
+            print("error: changing text of index \(changedIndexes) on the \(position).")
+            return false
+        }
+        return true
+    }
+    
+
     //generate a list of UIViewController to scroll through
     func newViewController(viewControllerID:String) -> UIViewController{
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewControllerID)
@@ -23,14 +50,24 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
          newViewController(viewControllerID: "Tasks Controller"),
          newViewController(viewControllerID: "Deleted Controller")]
     
-    //set bottom title names for pages
-    var pageNames = ["Schedule","Tasks","Deleted"]
+    //button titles, pre set in MainViewController
+    var pageNames = [String]()
     
     //current page index, after set to an index, change the name of bottom title
     var currentIndex = 0{
         didSet{
             bottomLabel.text = pageNames[currentIndex]
+            bottomLeftButton.setTitle(bottomLeftText[currentIndex], for: UIControl.State.normal)
+            bottomRightButton.setTitle(bottomRightText[currentIndex], for: UIControl.State.normal)
         }
+    }
+    
+    func onTapBottomRightButton(){
+        if bottomRightText[currentIndex] == "Add" {addTask()}
+    }
+    
+    func onTapBottomLeftButton(){
+       if bottomLeftText[currentIndex] == "Edit" || bottomLeftText[currentIndex] == "Done" {changeIsEditting()}
     }
     
     //add a task to tasks table and set currentIndex to 1
@@ -39,6 +76,14 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
         if currentIndex != 1 {goto(pageIndex: 1)}
         if let taskVC = viewControllers![0] as? tasksController{
             taskVC.addTask(title: "new T", detail: "new D", count: 1)
+        }
+    }
+    
+    //change editting mode for tables
+    func changeIsEditting(){
+        if let tableVC = viewControllers![0] as? UITableViewController{
+            tableVC.isEditing = !tableVC.isEditing
+            bottomLeftText[currentIndex] = tableVC.isEditing ? "Done" : "Edit"
         }
     }
     
