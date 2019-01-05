@@ -42,6 +42,14 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
     }
     
+    func setIsEditting() -> Bool?{
+        if let taskVC = viewControllers![0] as? tasksController{
+            taskVC.isEditing = !taskVC.isEditing
+            return taskVC.isEditing
+        }
+        return nil
+    }
+    
     //get the previous page(swipe right)
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = pages.index(of:viewController as! UITableViewController) else{return nil}

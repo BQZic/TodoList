@@ -26,6 +26,17 @@ class mainViewController: UIViewController{
         pageController.addTask()
     }
     
+    @IBAction func edit(_ sender: UIButton) {
+        if let isEditting = pageController.setIsEditting(){
+            if isEditting{
+                sender.setTitle("Done", for: UIControl.State.normal)
+            }else{
+                sender.setTitle("Edit", for: UIControl.State.normal)
+            }
+        }
+    }
+    
+    
     //prepare for the segue: pass the model and link the ptrs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "containerSegue"{
