@@ -10,39 +10,39 @@ import UIKit
 
 class mainViewController: UIViewController{
     
-    //this is the ptr to the pageVC inside the container
-    var pageController = mainPageController()
-    
     //load view
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //bottom title
-    @IBOutlet weak var pageTitle: UILabel!
+    //this is the ptr to the pageVC inside the container
+    var pageController = mainPageController()
     
-    //addTask function
-    @IBAction func addTask(_ sender: UIButton) {
-        pageController.addTask()
+    var pageNames = ["Schedule","Tasks","Deleted"]
+    
+    //bottom bar outlets
+    @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var bottomLeftButton: UIButton!
+    @IBOutlet weak var bottomRightButton: UIButton!
+    
+    //bottom right button
+    @IBAction func onTapBottomRightButton(_ sender: UIButton) {
+        pageController.onTapBottomRightButton()
     }
-    
-    @IBAction func edit(_ sender: UIButton) {
-        if let isEditting = pageController.setIsEditting(){
-            if isEditting{
-                sender.setTitle("Done", for: UIControl.State.normal)
-            }else{
-                sender.setTitle("Edit", for: UIControl.State.normal)
-            }
-        }
+    @IBAction func onTapBottomLeftButton(_ sender: UIButton) {
+        pageController.onTapBottomLeftButton()
     }
-    
     
     //prepare for the segue: pass the model and link the ptrs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "containerSegue"{
             if let destinationVC = segue.destination as? mainPageController{
                 pageController = destinationVC
-                pageController.bottomLabel = pageTitle
+                pageController.pageNames = pageNames
+                pageController.bottomLabel = bottomLabel
+                pageController.bottomLeftButton = bottomLeftButton
+                pageController.bottomRightButton = bottomRightButton
+                
             }
         }
     }
