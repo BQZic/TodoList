@@ -52,6 +52,7 @@ class mainViewController: UIViewController{
         if segue.identifier == "AddTaskSegue" {
             if let destinationVC = segue.destination as? addTaskController {
                 taskController = destinationVC
+                taskController.mainVC = pageController
             }
         }
     }

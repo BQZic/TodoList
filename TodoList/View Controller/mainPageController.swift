@@ -63,7 +63,7 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     func onTapBottomRightButton(){
-        if bottomRightText[currentIndex] == "Add" {addTask()}
+        //if bottomRightText[currentIndex] == "Add" {addTask()}
     }
     
     func onTapBottomLeftButton(){
@@ -71,12 +71,19 @@ class mainPageController: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     //add a task to tasks table and set currentIndex to 1
+    /*
     func addTask(){
         //If not at page: tasks, goto page: tasks
         if currentIndex != 1 {goto(pageIndex: 1)}
-        self.performSegue(withIdentifier: "AddTaskSegue", sender: self)
         if let taskVC = viewControllers![0] as? tasksController{
             taskVC.addTask(title: "new T", detail: "new D", count: 1)
+        }
+    }*/
+    
+    func addTask(title: String, content: String){
+        if currentIndex != 1 {goto(pageIndex: 1)}
+        if let taskVC = viewControllers![0] as? tasksController{
+            taskVC.addTask(title: title, detail: content, count: 1)
         }
     }
     
