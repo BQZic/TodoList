@@ -53,6 +53,7 @@ class mainViewController: UIViewController{
             if let destinationVC = segue.destination as? addTaskController {
                 taskController = destinationVC
                 taskController.mainVC = pageController
+                taskController.backPageName = bottomLabel.text
             }
         }
     }

@@ -11,9 +11,10 @@ import UIKit
 class addTaskController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     
     var mainVC: mainPageController?
+    var backPageName: String?
     @IBOutlet weak var itemTitle: UITextField!
     @IBOutlet weak var itemContent: UITextView!
-    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBAction func backPage(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -28,6 +29,7 @@ class addTaskController: UIViewController, UITextFieldDelegate, UITextViewDelega
         super.viewDidLoad()
         itemTitle.delegate = self
         itemContent.delegate = self
+        navigationBar.topItem?.title = backPageName!
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

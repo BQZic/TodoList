@@ -130,6 +130,7 @@
                     <connections>
                         <outlet property="itemContent" destination="PA3-0R-ESe" id="RRL-qr-lew"/>
                         <outlet property="itemTitle" destination="7Zw-Lj-uAc" id="5wf-5W-2Ah"/>
+                        <outlet property="navigationBar" destination="SBE-MM-W3o" id="XCm-J4-aO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ru-Rq-muo" userLabel="First Responder" sceneMemberID="firstResponder"/>
