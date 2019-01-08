@@ -27,7 +27,8 @@ class mainViewController: UIViewController{
     
     //bottom right button
     @IBAction func onTapBottomRightButton(_ sender: UIButton) {
-        pageController.onTapBottomRightButton()
+        self.performSegue(withIdentifier: "AddTaskSegue", sender: self)
+        //pageController.onTapBottomRightButton()
     }
     @IBAction func onTapBottomLeftButton(_ sender: UIButton) {
         pageController.onTapBottomLeftButton()

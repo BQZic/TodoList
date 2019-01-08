@@ -20,7 +20,35 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifo-KX-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-735" y="-461"/>
+            <point key="canvasLocation" x="-1218" y="-750"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lJ0-7H-HdB">
+            <objects>
+                <viewController id="s6q-Gw-8Ut" sceneMemberID="viewController">
+                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="UCN-Fn-7eo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-Nh-oxt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="AJM-mX-kmI" userLabel="Hello"/>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hllpo" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXY-oE-pck">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WSH-0F-hwI"/>
+                    </stackView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJ0-1o-RwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-256" y="-483"/>
         </scene>
         <!--Tasks Controller-->
         <scene sceneID="okA-vq-OC5">
@@ -202,11 +230,12 @@
                         <outlet property="bottomLabel" destination="8MK-Sd-TmJ" id="bgr-Cr-mE7"/>
                         <outlet property="bottomLeftButton" destination="8jf-0t-tvQ" id="edH-bh-OJe"/>
                         <outlet property="bottomRightButton" destination="ZXW-cO-H8q" id="Ldf-dJ-hQk"/>
+                        <segue destination="s6q-Gw-8Ut" kind="showDetail" identifier="AddTaskSegue" id="yhd-wM-tVX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pt-sf-qYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1626.4000000000001" y="-461.01949025487261"/>
+            <point key="canvasLocation" x="-2050" y="-420"/>
         </scene>
     </scenes>
 </document>

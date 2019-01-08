@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38558C2B21E4EE11009DC881 /* addTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38558C2A21E4EE11009DC881 /* addTaskController.swift */; };
 		B6C2EDCF21D90B0B00DC97F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C2EDCE21D90B0B00DC97F6 /* AppDelegate.swift */; };
 		B6C2EDD421D90B0B00DC97F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C2EDD221D90B0B00DC97F6 /* Main.storyboard */; };
 		B6C2EDD621D90B0C00DC97F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C2EDD521D90B0C00DC97F6 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38558C2A21E4EE11009DC881 /* addTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskController.swift; sourceTree = "<group>"; };
 		B6C2EDCB21D90B0B00DC97F6 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C2EDCE21D90B0B00DC97F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C2EDD321D90B0B00DC97F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				B6C2EE0921D90D4900DC97F6 /* tasksController.swift */,
 				B6C2EE0521D90CD000DC97F6 /* scheduleController.swift */,
 				B6C2EE0B21D90EA400DC97F6 /* deletedController.swift */,
+				38558C2A21E4EE11009DC881 /* addTaskController.swift */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6F1ABCD21DE07CB0054845A /* oneDeleted.swift in Sources */,
+				38558C2B21E4EE11009DC881 /* addTaskController.swift in Sources */,
 				B6C2EE0621D90CD000DC97F6 /* scheduleController.swift in Sources */,
 				B6C2EE0421D90C6A00DC97F6 /* mainPageController.swift in Sources */,
 				B6F1ABD521DE286F0054845A /* scheduleModel.swift in Sources */,
