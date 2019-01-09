@@ -18,6 +18,8 @@ class mainViewController: UIViewController{
     //this is the ptr to the pageVC inside the container
     var pageController = mainPageController()
     
+    var taskController = addTaskController()
+    
     var pageNames = ["Schedule","Tasks","Deleted"]
     
     //bottom bar outlets
@@ -27,7 +29,8 @@ class mainViewController: UIViewController{
     
     //bottom right button
     @IBAction func onTapBottomRightButton(_ sender: UIButton) {
-        pageController.onTapBottomRightButton()
+        self.performSegue(withIdentifier: "AddTaskSegue", sender: self)
+        //pageController.onTapBottomRightButton()
     }
     @IBAction func onTapBottomLeftButton(_ sender: UIButton) {
         pageController.onTapBottomLeftButton()
@@ -43,6 +46,14 @@ class mainViewController: UIViewController{
                 pageController.bottomLeftButton = bottomLeftButton
                 pageController.bottomRightButton = bottomRightButton
                 
+            }
+        }
+        
+        if segue.identifier == "AddTaskSegue" {
+            if let destinationVC = segue.destination as? addTaskController {
+                taskController = destinationVC
+                taskController.mainVC = pageController
+                taskController.backPageName = bottomLabel.text
             }
         }
     }

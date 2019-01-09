@@ -20,7 +20,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifo-KX-Pbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-735" y="-461"/>
+            <point key="canvasLocation" x="-1534" y="-1200"/>
         </scene>
         <!--Tasks Controller-->
         <scene sceneID="okA-vq-OC5">
@@ -66,6 +66,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gw-BN-9Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1972" y="316"/>
+        </scene>
+        <!--Add Task Controller-->
+        <scene sceneID="Nx0-Cs-kh5">
+            <objects>
+                <viewController storyboardIdentifier="Add Task Controller" id="28p-ey-xla" customClass="addTaskController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wlr-Zy-Uqu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBE-MM-W3o">
+                                <rect key="frame" x="0.0" y="27" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="eqQ-S9-CYh">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8ls-sF-U24">
+                                            <connections>
+                                                <action selector="backPage:" destination="28p-ey-xla" id="emg-WA-8q4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="ADJ-w0-uRd">
+                                            <connections>
+                                                <action selector="addTask:" destination="28p-ey-xla" id="qzy-ud-rkQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7v-ib-dYo">
+                                <rect key="frame" x="16" y="86" width="64" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Zw-Lj-uAc">
+                                <rect key="frame" x="14" y="124" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPF-a6-WY7">
+                                <rect key="frame" x="16" y="172" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PA3-0R-ESe">
+                                <rect key="frame" x="16" y="210" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="z8N-73-zsa"/>
+                    </view>
+                    <connections>
+                        <outlet property="itemContent" destination="PA3-0R-ESe" id="RRL-qr-lew"/>
+                        <outlet property="itemTitle" destination="7Zw-Lj-uAc" id="5wf-5W-2Ah"/>
+                        <outlet property="navigationBar" destination="SBE-MM-W3o" id="XCm-J4-aO2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ru-Rq-muo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1359.2" y="-421.43928035982015"/>
         </scene>
         <!--Schedule Controller-->
         <scene sceneID="xUb-Vd-pVa">
@@ -202,11 +272,12 @@
                         <outlet property="bottomLabel" destination="8MK-Sd-TmJ" id="bgr-Cr-mE7"/>
                         <outlet property="bottomLeftButton" destination="8jf-0t-tvQ" id="edH-bh-OJe"/>
                         <outlet property="bottomRightButton" destination="ZXW-cO-H8q" id="Ldf-dJ-hQk"/>
+                        <segue destination="28p-ey-xla" kind="showDetail" identifier="AddTaskSegue" id="pw5-Re-JSW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pt-sf-qYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1626.4000000000001" y="-461.01949025487261"/>
+            <point key="canvasLocation" x="-2343" y="-421"/>
         </scene>
     </scenes>
 </document>
